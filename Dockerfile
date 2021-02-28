@@ -56,11 +56,14 @@ RUN npm link
 WORKDIR /pw3-frontend
 COPY pw3-frontend ./
 RUN npm install
-RUN npm run build
+RUN npm run build --prod
 RUN npm link vite-plugin-rust
+
+RUN cp visualiser/pkg/planetwars_rs_bg.wasm dist/_assets/index.$(ls dist/_assets | grep '.js$' | cut -f2 -d".")_bg.wasm
 
 FROM nginx:mainline
 
+COPY frontend.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /app
-COPY --from=frontend-build /pw3-frontend/dist /usr/share/nginx/html/
+COPY --from=frontend-build /pw3-frontend/dist /var/www/pw3
