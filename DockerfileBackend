@@ -2,8 +2,6 @@ FROM rust:1-buster as backend-build
 
 WORKDIR /app
 COPY pw3-moz2 ./
-COPY patch.txt ./
-RUN patch -t < patch.txt
 
 RUN cargo build
 
