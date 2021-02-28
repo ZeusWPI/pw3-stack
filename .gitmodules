@@ -1,0 +1,6 @@
+[submodule "pw3-moz2"]
+	path = pw3-moz2
+	url = git@github.com:iasoon/pw3-moz2.git
+[submodule "pw3-frontend"]
+	path = pw3-frontend
+	url = git@github.com:iasoon/pw3-frontend.git
