@@ -4,10 +4,10 @@ services:
   frontend:
     build: .
     ports:
-      - "8000:80" 	# Lobby server
+      - "8000:80" # Lobby server
   backend:
     build: 
       context: .
       dockerfile: DockerfileBackend
     ports:
-      - "8080:8080"	# Game server
+      - "8080:8080" # Game server
